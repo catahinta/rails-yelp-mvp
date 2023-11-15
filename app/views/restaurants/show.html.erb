@@ -2,7 +2,7 @@
 <p>Address: <%= @restaurant.address %></p>
 <p>Phone number: <%= @restaurant.phone_number %></p>
 <p>Category: <%= @restaurant.category %></p>
-<%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %>
+<%# <%= link_to "Add a new review", new_restaurant_review_path(@restaurant) %> %>
 <h3>Reviews:</h3>
 <ul>
   <% @restaurant.reviews.each do |review| %>
@@ -10,3 +10,11 @@
   <% end %>
 </ul>
 <%= link_to "Back to restaurants", restaurants_path %>
+
+<h4>Add a new review</h4>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Submit review" %>
+<% end %>
