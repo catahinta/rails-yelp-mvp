@@ -1,0 +1,8 @@
+<h3>Leave review for <%= @restaurant.name %></h3>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.submit "Submit review" %>
+<% end %>
+
+<%= link_to "Back to restaurant", restaurant_path(@restaurant) %>
